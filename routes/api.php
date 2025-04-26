@@ -9,14 +9,17 @@ use Illuminate\Support\Facades\Route;
 // Public Routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/products', [ProductController::class, 'index']);
+Route::post('/products/calculate-amount', [ProductController::class, 'calculateAmount']);
+
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
-//    Route::get('/products', [ProductController::class, 'index']);
-//    Route::get('/products/{id}', [ProductController::class, 'show']);
+
+    Route::get('/products/{id}', [ProductController::class, 'show']);
     Route::post('/products', [ProductController::class, 'store']);
-//    Route::put('/products/{id}', [ProductController::class, 'update']);
-//    Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+    Route::put('/products/{id}', [ProductController::class, 'update']);
+    Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
     Route::get('/materials', [ProductMaterialController::class, 'index']);
     Route::get('/materials/product/{product_id}', [ProductMaterialController::class, 'productMaterials']);

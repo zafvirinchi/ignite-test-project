@@ -11,6 +11,7 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
+        'revision',
         'name',
         'description',
         'quantity',
@@ -29,8 +30,10 @@ class Product extends Model
         'margin_amount',
         'sub_total',
         'amount',
-        'created_by',    // 🔥 must be here
-        'updated_by',    // 🔥 must be here (optional if you update later)
+        'delete',
+        'created_by',
+        'updated_by',
+        'deleted_by',
     ];
 
     public function materials()

@@ -10,7 +10,19 @@ class ProductMaterial extends Model
     use HasFactory;
 
     protected $fillable = [
-        'product_id', 'description', 'quantity', 'rate'
+        'revision',
+        'product_id',
+        'description',
+        'quantity',
+        'rate',
+        'amount',
+        'delete',
+        'created_by',
+        'updated_by',
+        'created_by',
+        'updated_by',
+        'deleted_by',
+
     ];
 
     public function product()
