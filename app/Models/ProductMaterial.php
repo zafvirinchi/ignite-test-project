@@ -19,14 +19,16 @@ class ProductMaterial extends Model
         'delete',
         'created_by',
         'updated_by',
-        'created_by',
-        'updated_by',
         'deleted_by',
-
     ];
 
     public function product()
     {
         return $this->belongsTo(Product::class);
     }
+
+    protected $casts = [
+        'delete' => 'boolean',
+    ];
+
 }
